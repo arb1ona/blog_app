@@ -1,0 +1,22 @@
+<h1>Create new article</h1>
+
+<% if false %>
+    # "scope"defines the scope/model we are working with "url" where it submits to Posting this post,
+    #  using http post instead of remotely using ajax
+<% end %>
+    <%= form_with scope: :article, url:articles_path, local: true do |f| %>
+      <p>
+        <%= f.label :title %><br/>
+        <%= f.text_field :title %>
+      </p>
+      <p>
+        <%= f.label :description %><br/>
+        <%= f.text_area :description %>
+      </p>
+
+      <p>
+        <%= f.submit %> 
+      </p>
+
+
+<% end %>
