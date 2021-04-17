@@ -1,0 +1,22 @@
+<h1>Articles lisiting page</h1>
+
+<table>
+    <thead>
+        <tr>
+            <th>Title</th>
+            <th>Description</th>
+            <th>Actions</th>
+        </tr>
+    </thead>
+
+    <tbody>
+    #use .each method to iterate through each article of @articles-instance variable
+    <% @articles.each do |article| %>
+        <tr>
+            <td><%= article.title %></td>
+            <td><%= article.description %></td>
+            <td> placeholder</td>
+        </tr>
+    <% end %>
+    </tbody>
+</table>
