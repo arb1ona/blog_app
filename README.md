@@ -1,1 +1,1 @@
-The front-end: Error messages and flash helpers(hash)
+The front-end: Updating articles functionality
