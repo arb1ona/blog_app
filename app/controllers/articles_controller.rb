@@ -1,5 +1,5 @@
 class ArticlesController < ApplicationController
-    require "pry"
+    # require "pry"
     before_action :set_article  , only: [:show, :edit, :update, :destroy]
     
     def show
@@ -16,7 +16,7 @@ class ArticlesController < ApplicationController
         @article = Article.new(params_article)
         if  @article.save
             redirect_to @article
-            binding.pry
+            # binding.pry
             flash[:notice] = "Article was successfully created!"
         else
             render 'new'
