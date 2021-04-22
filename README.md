@@ -1,4 +1,5 @@
-DRY code: Don't Repeat Yourself
+STYLING - Build HomePage
 
-- re-factoring
-- extract away the reduncancies in code
+- Navbar
+- Body (reference picture)
+- Sticky
