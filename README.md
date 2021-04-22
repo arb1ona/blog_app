@@ -1,5 +1,3 @@
 STYLING - Build HomePage
 
-- Navbar
-- Body (reference picture)
-- Sticky
+- Layout links (using Bootstrap classes)
