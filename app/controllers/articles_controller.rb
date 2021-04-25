@@ -1,6 +1,6 @@
 class ArticlesController < ApplicationController
     # require "pry"
-    before_action :set_article  , only: [:show, :edit, :update, :destroy]
+    before_action :set_article, only: [:show, :edit, :update, :destroy]
     
     def show
     end
@@ -30,12 +30,14 @@ class ArticlesController < ApplicationController
             render 'edit'
         end
     end
+    
     def destroy
         @article.destroy
         redirect_to articles_path
     end
 
     private
+    
     def set_article
         @article = Article.find(params[:id])
     end
