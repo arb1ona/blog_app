@@ -1,9 +1,24 @@
-STYLING - Errors and Flash messaging
+Resource
 
--   To remove the field_with_errors functionality, add the following code to the bottom of the config/environment.rb file:
+- Users - create users table and model - add validations
+  _ username must be present and unique, min 3 max 25
+  _ email address must be present and unique, max 105 \* email must be valid email format, check with email regex - rubolo.com
 
-        ActionView::Base.field_error_proc = Proc.new do |html_tag, instance|
-        html_tag.html_safe
-        end
+Associations
 
--   Add 'alert' + 'close' button from bootstrap
+- One-to-many
+  between users and articles
+
+REST for users
+
+Authentication
+
+- Login using secure password
+
+Restriction of actions
+
+- Based on logged in/logged out state
+
+Security
+
+- Admin user functionality and access level
