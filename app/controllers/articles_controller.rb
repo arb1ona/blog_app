@@ -18,6 +18,7 @@ class ArticlesController < ApplicationController
 
   def create
     @article = Article.new(params_article)
+    @article.user = User.first
     if @article.save
       redirect_to @article
       # binding.pry
