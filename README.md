@@ -1,24 +1,3 @@
-Resource
+before_save { self.email = email.downcase }
 
-- Users - create users table and model - add validations
-  _ username must be present and unique, min 3 max 25
-  _ email address must be present and unique, max 105 \* email must be valid email format, check with email regex - rubolo.com
-
-Associations
-
-- One-to-many
-  between users and articles
-
-REST for users
-
-Authentication
-
-- Login using secure password
-
-Restriction of actions
-
-- Based on logged in/logged out state
-
-Security
-
-- Admin user functionality and access level
+Notice this line - before_save { self.email = email.downcase }. Here we are referencing the email field associated with each object before saving said object so we must append the self keyword to the email we want to reference. This self is referencing each object of the User class so when the computer comes to the email field of any of these objects, it runs the downcase method on that field and then saves the object. We can now be sure that the email address will have proper formatting AND letter case before being saved to the database!
