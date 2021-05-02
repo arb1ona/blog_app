@@ -1,3 +1,17 @@
-before_save { self.email = email.downcase }
+Authentication - Login using secure password
 
-Notice this line - before_save { self.email = email.downcase }. Here we are referencing the email field associated with each object before saving said object so we must append the self keyword to the email we want to reference. This self is referencing each object of the User class so when the computer comes to the email field of any of these objects, it runs the downcase method on that field and then saves the object. We can now be sure that the email address will have proper formatting AND letter case before being saved to the database!
+STEP 1
+Add BCrypt gem and bundle install
+STEP 2
+Add has_secure_password to user model  
+STEP 3
+Add password field to users table
+a) rails generate migration add_password_digest_to_users
+b) at new migration file, at change method add these lines
+`def change`
+`add_column :users, :password_digest, :string`
+`end`
+c) add password to a user in console ex:
+`user=User.last`
+`user.password="password123"`
+`user.save`
