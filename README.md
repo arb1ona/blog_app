@@ -1,3 +1,3 @@
-Restriction of actions
+Edit profile
 
-- Based on logged in/logged out state
+- http://localhost:3000/users/9
