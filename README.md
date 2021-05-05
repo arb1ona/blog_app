@@ -1,7 +1,5 @@
-Sign-in Form
+Authentication helper methods
 
-- Added routes for login - new, create and destroy (to represent login form, logging in a user and logging out a user).
+- Added `current_user` and `logged_in?` helper methods.
 
-- Added a sessions controller with the new, create and destroy actions.
-
-- Added a sessions folder under app/views and created a new.html.erb template to display the login form.
+- Modified the navigation partial and utilized these methods to display links based on logged in state.
