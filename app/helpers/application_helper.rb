@@ -10,12 +10,5 @@ module ApplicationHelper
         # we want to return this url in an image tag
         image_tag(gravatar_url, alt: user.username, class: "rounded-circle shadow mx-auto d-block")
     end
-
-
-    # Will siply check if we have a user logged in.
-    def logged_in?
-        !!current_user
-
-    end
-
+    
 end
