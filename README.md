@@ -1,9 +1,10 @@
-Authentication helper methods
+Listing Users
 
-- Moved the `logged_in? authentication` method from application helper to application controller and declared them as helper methods so they can be used in views as well.
+- Added an index action in the users_controller to list all users using the application.
+  `def index`
+  ` @users = User.all`
+  `end`
+- Added an index.html.erb template and filled in the code for the view using the `app/views/articles/\_article.html.erb` partial as a starting template.
 
-- Updated pages controller home action (root route) to redirect to articles index page if users are logged in.
-
-`def home`
-`redirect_to articles_path if logged_in?`
-`end`
+- Added a link to "Bloggers" in the navigation partial which leads to the users index page.
+  ` <%= link_to "Bloggers",users_path, class: "nav-link" %>`
