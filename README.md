@@ -1,5 +1,13 @@
 Authentication helper methods
 
-- Modified the users controller `create action` so users' are logged in once they sign-up.
+- Moved the `current_user` method from application helper to application controller and declared them as helper methods so they can be used in views as well.
 
-- Added `set_user` method and used it as `before_action` for show, edit and update actions in users controller.
+  `helper_method :current_user`
+
+  `def current_user`  
+   `@current_user ||= User.find(session[:user_id]) if session[:user_id]`
+  `end`
+
+- Updated the `create` action in articles controller so the logged in user is associated with the article being created instead of hardcoding the user.
+
+  From this: `@article.user = User.first` to this:`@article.user = current_user`
