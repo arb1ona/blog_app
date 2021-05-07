@@ -43,8 +43,9 @@ class UsersController < ApplicationController
     def destroy
       @user.destroy
       session[:user_id] = nil #otherwise app willl through an error
-      flash[:alert] = "Account and all associated articles successfully deleted"
-      redirect_to articles_path
+      flash.now[:alert] = "Account and all associated articles successfully deleted"
+      render 'new'
+      # redirect_to articles_path
     end
 
     private
