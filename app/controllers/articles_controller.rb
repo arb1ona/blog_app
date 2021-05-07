@@ -3,6 +3,8 @@
 class ArticlesController < ApplicationController
   # require "pry"
   before_action :set_article, only: %i[show edit update destroy]
+  before_action :require_user, except: [:show, :edit] # restrict to login
+  before_action :require_same_user, only: [:edit, :update, :destroy] # restrict only the owner of article can perform edit/update/delete
 
   def show; end
 
@@ -50,5 +52,12 @@ class ArticlesController < ApplicationController
 
   def params_article
     params.require(:article).permit(:title, :description)
+  end
+
+  def require_same_user
+    if current_user != @article.user
+      flash[:alert]= "You can only edit or delete your own article"
+      redirect_to @article
+    end
   end
 end

@@ -1,5 +1,7 @@
-Restrict actions from UI
+Restrict actions for articles controller
 
-- Restricted the new article creation option in the navigation menu to logged in users only.
+- Added require user method in application controller.
 
-- Added a dropdown with users profile action links.
+- Added require same user private method in articles controller.
+
+- Used the two methods defined above as before_action methods in a few actions to restrict activities in the articles controller.
