@@ -1,7 +1,5 @@
-Restrict actions for articles controller
+Restrict actions for users controller
 
-- Added require user method in application controller.
+- Added `require_same_user` method to users controller.
 
-- Added require same user private method in articles controller.
-
-- Used the two methods defined above as before_action methods in a few actions to restrict activities in the articles controller.
+- Used `require_same_user` and `require_user` methods to restrict certain actions in the users controller.
