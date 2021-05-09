@@ -19,5 +19,24 @@
         </div>
       </div>
     </div>
-  </div>
+  </div>    
 </div>
+
+<h4>Comments</h4>
+<div id="post-comments">
+  <% @article.comments.each do |comment| %>
+    <div class="comments">
+        <p ><strong><%= link_to comment.user.username, user_path(comment.user) %></strong></p>
+        <p><%= comment.body %></p>
+        <p class="small font-italic"> Added <%= time_ago_in_words(comment.created_at) %> ago</p>
+    </div>
+  <% end %>
+</div>
+
+
+<h4>Leave a comment</h4>
+<%= form_for @comment, remote: true do |f| %>
+  <%= f.hidden_field :article_id, value: @article.id %>
+  <%= f.text_area :body, placeholder: "Your comment goes here" %>
+  <%= f.submit "Submit comment", class: "btn btn-success" %>
+<% end %>
