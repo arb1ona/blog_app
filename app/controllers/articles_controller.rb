@@ -6,7 +6,10 @@ class ArticlesController < ApplicationController
   before_action :require_user, except: [:show, :edit] # restrict to login
   before_action :require_same_user, only: [:edit, :update, :destroy] # restrict only the owner of article can perform edit/update/delete
 
-  def show; end
+  
+  def show
+    @comment = Comment.new
+  end
 
   def index
     @articles = Article.all
@@ -47,7 +50,7 @@ class ArticlesController < ApplicationController
   private
 
   def set_article
-    @article = Article.find(params[:id])
+    @article = Article.includes(:comments).find(params[:id])
   end
 
   def params_article
