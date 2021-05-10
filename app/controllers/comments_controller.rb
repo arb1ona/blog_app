@@ -4,15 +4,11 @@ class CommentsController < ApplicationController
         @comment = Comment.new(comment_params)
         @comment.user_id = current_user.id
 
-        respond_to do |format|
-            format.js {
-                if @comment.save
-                    @comments = Comment.where(article_id: @comment.article_id)
-                    render "comments/create"
-                else
-                    #unable to save
-                end
-            }
+        if @comment.save
+            @comments = Comment.where(article_id: @comment.article_id)
+            respond_to do |format|
+                format.js
+            end
         end    
     end
 

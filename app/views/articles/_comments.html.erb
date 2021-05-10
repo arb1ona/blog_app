@@ -1,7 +1,13 @@
-<% @article.comments.each do |comment| %>
-    <div class="comments">
-        <p><%= comment.body %></p>
-        <p><%= comment.user.username %></p>
-        <p class="small"> Added <%= time_ago_in_words(comment.created_at) %> ago</p>
-    </div>
-<% end %>
+<div class="card">
+    <% comments.each do |comment| %>
+        <div class="comments card">
+            <div class="card-body">
+                <p class="card-title"><%= link_to comment.user.username, user_path(comment.user) %></p>
+                <p class="card-text"><%= simple_format comment.body %></p>
+            </div>
+            <div class="card-footer">
+                <small class="text-muted">Added <%= time_ago_in_words(comment.created_at) %> ago</small>
+            </div>
+        </div>
+    <% end %>
+</div>
